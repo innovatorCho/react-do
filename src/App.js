@@ -3,6 +3,8 @@ import './App.css';
 
 function App() {
   const [currentNo, setCurrentNo] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
 
   const quizes = [
     {
@@ -37,18 +39,32 @@ function App() {
   },
 ];
 
+const convertedScore = Math.floor((score / quizes.length) * 100);
+
   const handleClick = (isCorrect) => {
     if(isCorrect) {
       alert("정답");
+      setScore(score + 1);
     } else {
       alert("오답");
     }
-    setCurrentNo((currentNo) => currentNo + 1);
+
+    if(currentNo === quizes.length -1) {
+      setShowResult(true);
+    } else {
+      setCurrentNo((currentNo) => currentNo + 1);
+    }
   };
 
   return (
     <div className="container">
-      <div className="app">
+     { showResult ? (
+       <div className="app">
+         <h1 className="result-header"> 퀴즈가 끝났습니다. </h1>
+         <p className="result-score"> 당신의 점수는 {convertedScore} </p>
+       </div>
+     ) : (
+     <div className="app">
         <div className="question-section">
           <h1 className="question-header">
             <span>{quizes[currentNo].id}</span>/{quizes.length}
@@ -62,7 +78,8 @@ function App() {
             ))
           }
         </div>
-      </div>
+      </div>)
+      }
     </div>
   );
 }
