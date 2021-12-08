@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../App.css';
 
 import { QUIZZES } from "../constants";
 import Button from "./Button";
@@ -10,6 +9,7 @@ import Container from './Container';
 import AnswerGroup from './AnswerGroup';
 import QuestionSection from './QuestionSection';
 import ResultSection from './ResultSection';
+import GlobalStyle from '../globalStyle';
 
 function App() {
   const [currentNo, setCurrentNo] = useState(0);
@@ -35,6 +35,7 @@ const convertedScore = Math.floor((score / QUIZZES.length) * 100);
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       { showResult ? (
         <Container>
           <ResultSection convertedScore={convertedScore}/>
