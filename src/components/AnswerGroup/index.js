@@ -12,12 +12,15 @@ const AnswerGroupWrapper = styled.div`
     margin-bottom: 8px;
 `;
 
-const AnswerGroup = ({currentNo, handleClick}) => (
+const AnswerGroup = ({currentNo, handleClick}) => {
+    //console.log(`CurrnoNO ${currentNo} HandleClick ${handleClick}`)
+    return (
     <AnswerGroupWrapper>
         {QUIZZES[currentNo].answers.map((answer) => (
             <Button text={answer.text} onClick={() => handleClick(answer.isCorrect)}></Button>
         ))}
     </AnswerGroupWrapper>
-);
+    );
+};
 
 export default AnswerGroup;
