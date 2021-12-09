@@ -16,10 +16,15 @@ const Loading = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setTimeout(() => {
+        const id = setTimeout(() => {
             setTitle((title) => title + ".");
         }, 700);
+        return () => clearTimeout(id);
     }, [title]);
+
+    useEffect(() => {
+        setTimeout(() => navigate("/result"), 2000);
+    }, [navigate]);
 
     return (
         <Container>

@@ -13,7 +13,7 @@ const Quiz = ({setScore}) => {
     } 
 
     if(currentNo === QUIZZES.length -1) {
-      navigate("/result");
+      navigate("/loading");
     } else {
       setCurrentNo((currentNo) => currentNo + 1);
     }
