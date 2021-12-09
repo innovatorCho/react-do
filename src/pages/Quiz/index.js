@@ -1,9 +1,6 @@
 import { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import Container from '../../components/Container';
-import AnswerGroup from '../../components/AnswerGroup';
-import QuestionSection from '../../components/QuestionSection';
-
+import {Container, AnswerGroup, QuestionSection} from 'components';
 import { QUIZZES } from "../../constants";
 
 const Quiz = ({setScore}) => {

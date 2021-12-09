@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyleButton = styled.button`
     font-size: ${(props) => (props.fontSize === "big" ? "32px" : "16px")};
@@ -18,7 +19,17 @@ const StyleButton = styled.button`
     background-color: ${(props) => props.theme.primaryColor80};
     }`;
 
-const Button = (props) => (
-    <StyleButton onClick={props.onClick}>{props.text}</StyleButton>
+const StyleLink = styled(Link)`
+    width: 100%;
+`;
+
+const Button = ({ to, onClick, children }) => (
+    to ? (
+        <StyleLink to={to}>
+            <StyleButton onClick={onClick}>{children}</StyleButton>
+        </StyleLink>
+    ) : (
+        <StyleButton onClick={onClick}>{children}</StyleButton>
+    )
 );
 export default Button;

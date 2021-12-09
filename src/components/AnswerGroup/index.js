@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { QUIZZES } from "../../constants";
-import Button from "../Button";
+import Button from "components/Button";
 
 const AnswerGroupWrapper = styled.div`
     display: flex;
@@ -17,7 +17,7 @@ const AnswerGroup = ({currentNo, handleClick}) => {
     return (
     <AnswerGroupWrapper>
         {QUIZZES[currentNo].answers.map((answer) => (
-            <Button text={answer.text} onClick={() => handleClick(answer.isCorrect)}></Button>
+            <Button key={answer.text} onClick={() => handleClick(answer.isCorrect)}>{answer.text}</Button>
         ))}
     </AnswerGroupWrapper>
     );
