@@ -11,6 +11,7 @@ const Result = ({ setScore }) => {
 
     return (
         <>
+            <Helmet>
             {/** URL 정보*/}
             <meta property="og:url" centent={currentUrl} />
             {/** title 정보 */}
@@ -23,6 +24,7 @@ const Result = ({ setScore }) => {
             <meta property="twitter:title" content={RESULT[cCode]["ogTitle"]} />
             <meta property="twitter:description" content={RESULT[cCode]["ogDescription"]} />
             <meta property="twitter:image" conten={RESULT[cCode]["ogImage"]} />
+            </Helmet>
             <Container>
                 <ResultSection cCode={cCode}/>
                 <Button to="/" onClick={() => setScore(0)}>테스트 다시하기</Button>
